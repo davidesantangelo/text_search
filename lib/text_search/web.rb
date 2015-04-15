@@ -20,10 +20,10 @@ module TextSearch
  		end
  	private
  		def fetchtext
-	    @url = "http://#{@url}" if (!URI.parse(@url).scheme)
+	    @url = "http://#{@url}" if (!URI.parse(URI.encode(@url)).scheme)
 	    @text = ""
 	    begin                                                            
-	      html = Nokogiri::HTML(open( @url, :allow_redirections => :safe))         
+	      html = Nokogiri::HTML(open(URI.parse(URI.encode(@url)), :allow_redirections => :safe))         
 	      html.css('script').remove    
 	      @text =  html.at('html').inner_text                              
 	    rescue Exception => e                                        
