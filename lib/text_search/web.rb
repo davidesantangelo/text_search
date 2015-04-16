@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'open-uri'
 require 'open_uri_redirections'
 require "text_search/base"
+require 'uri'
 
 module TextSearch
  	class Web
